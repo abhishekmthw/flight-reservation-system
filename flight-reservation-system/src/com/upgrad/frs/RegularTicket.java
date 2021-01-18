@@ -1,13 +1,18 @@
 package com.upgrad.frs;
 
 public class RegularTicket {
-    String specialServices;
 
-    String getSpecialService(){
+    private String specialServices;
+
+    public RegularTicket(String specialServices) {
+        this.specialServices = specialServices;
+    }
+
+    public String getSpecialServices() {
         return specialServices;
     }
 
-    void updateSpecialServices(String specialServices){
+    public void setSpecialServices(String specialServices) {
         this.specialServices = specialServices;
     }
 }
