@@ -5,7 +5,6 @@ public class Passenger {
     private int id;
     private Address address;
     private Contact contact;
-    private Flight flight;
 
     private static  int idCounter;
 
@@ -45,11 +44,13 @@ public class Passenger {
         }
 
         String getAddressDetails(){
-            return street + ", " + city +  ", " + state;
+            return "Address: " + street + ", " + city +  ", " + state + " ";
         }
 
-        void updateAddressDetails(String addressDetail){
-            street = addressDetail;
+        void updateAddressDetails(String[] addressDetail){
+            street = addressDetail[0];
+            city = addressDetail[1];
+            state = addressDetail[2];
         }
     }
 
@@ -88,12 +89,14 @@ public class Passenger {
             this.email = email;
         }
 
-        String getContactDetails(){
-            return name +  ", " + phone +  ", " + email;
+        public String getContactDetails(){
+            return "Name: " + name +  ", Phone: " + phone +  ", Email: " + email + " ";
         }
 
-        void updateContactDetails(String contactDetails){
-            name = contactDetails;
+        public void updateContactDetails(String[] contactDetails){
+            name = contactDetails[0];
+            phone = contactDetails[1];
+            email = contactDetails[2];
         }
     }
 
@@ -114,30 +117,25 @@ public class Passenger {
         this.id = id;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(String[] addressDetails) {
+        address.updateAddressDetails(addressDetails);
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContact(String[] contactDetails) {
+        contact.updateContactDetails(contactDetails);
     }
 
-    public Flight getFlight() {
-        return flight;
+    public void setPassenger(String[] contactDetails, String[] addressDetails){
+        address.updateAddressDetails(addressDetails);
+        contact.updateContactDetails(contactDetails);
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public String getContact(){
+        return contact.getContactDetails();
     }
 
-    void getContact(){
-        String details = contact.getContactDetails();
-        System.out.println(details);
-    }
-
-    void getAddress(){
-        String details = address.getAddressDetails();
-        System.out.println(details);
+    public String getAddress(){
+        return address.getAddressDetails();
     }
 
     int getPassengerCount(){

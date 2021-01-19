@@ -46,8 +46,15 @@ public class Flight {
         this.bookedSeats = bookedSeats;
     }
 
-    String getFlightDetails(){
+    public String getFlightDetails(){
         return "Flight number: " + flightNumber + ", Airline: " + airline + ", Capacity: " + capacity + ", Booked Seats: " + bookedSeats;
+    }
+
+    public void setFlightDetails(String[] flightDetails, int capacity, int bookedSeats){
+        flightNumber = flightDetails[0];
+        airline = flightDetails[1];
+        this.capacity = capacity;
+        this.bookedSeats = bookedSeats;
     }
 
     boolean checkAvailability(){

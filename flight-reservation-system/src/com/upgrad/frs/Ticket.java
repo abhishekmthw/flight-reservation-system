@@ -1,6 +1,6 @@
 package com.upgrad.frs;
 
-public class Ticket {
+public abstract class Ticket {
 
     private String pnr;
     private String from;
@@ -14,7 +14,7 @@ public class Ticket {
     private Flight flight;
     private Passenger passenger;
 
-    public Ticket(String pnr, String from, String to, String flightNumber, String airline, int capacity, int bookedSeats, String departureDateTime, String arrivalDateTime, int id, String street, String city, String state, String name, String phone, String email, String seatNo, float price, boolean cancelled) {
+    public Ticket(String pnr, String from, String to,  String departureDateTime, String arrivalDateTime, String seatNo, float price, boolean cancelled, String flightNumber, String airline, int capacity, int bookedSeats, int id, String street, String city, String state, String name, String phone, String email) {
         this.pnr = pnr;
         this.from = from;
         this.to = to;
@@ -96,20 +96,20 @@ public class Ticket {
         this.cancelled = cancelled;
     }
 
-    public Flight getFlight() {
-        return flight;
+    public String getFlight() {
+        return flight.getFlightDetails();
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public void setFlight(String[] flightDetails, int capacity, int bookedSeats) {
+        flight.setFlightDetails(flightDetails, capacity, bookedSeats);
     }
 
-    public Passenger getPassenger() {
-        return passenger;
+    public String getPassenger() {
+        return passenger.getContact() + passenger.getAddress();
     }
 
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
+    public void setPassenger(String[] contactDetails, String[] addressDetails) {
+        passenger.setPassenger(contactDetails, addressDetails);
     }
 
     String checkStatus(){
