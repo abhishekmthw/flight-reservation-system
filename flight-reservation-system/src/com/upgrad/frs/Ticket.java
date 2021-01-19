@@ -2,6 +2,7 @@ package com.upgrad.frs;
 
 public abstract class Ticket {
 
+    //attributes
     private String pnr;
     private String from;
     private String to;
@@ -11,10 +12,12 @@ public abstract class Ticket {
     private float price;
     private boolean cancelled;
 
+    //aggregation attributes
     private Flight flight;
     private Passenger passenger;
 
-    public Ticket(String pnr, String from, String to,  String departureDateTime, String arrivalDateTime, String seatNo, float price, boolean cancelled, String flightNumber, String airline, int capacity, int bookedSeats, int id, String street, String city, String state, String name, String phone, String email) {
+    //constructor
+    public Ticket(String pnr, String from, String to,  String departureDateTime, String arrivalDateTime, String seatNo, float price, boolean cancelled, String flightNumber, String airline, int capacity, int bookedSeats, String street, String city, String state, String name, String phone, String email) {
         this.pnr = pnr;
         this.from = from;
         this.to = to;
@@ -32,6 +35,7 @@ public abstract class Ticket {
 
     }
 
+    //setters and getters start
     public String getPnr() {
         return pnr;
     }
@@ -105,14 +109,16 @@ public abstract class Ticket {
     }
 
     public String getPassenger() {
-        return passenger.getContact() + passenger.getAddress();
+        return passenger.getPassenger();
     }
 
     public void setPassenger(String[] contactDetails, String[] addressDetails) {
         passenger.setPassenger(contactDetails, addressDetails);
     }
+    //setters and getters end
 
-    String checkStatus(){
+    //methods
+    public String checkStatus(){
         String status;
         if(cancelled){
             status = "Cancelled";
@@ -123,12 +129,16 @@ public abstract class Ticket {
         return status;
     }
 
-    int getFlightDuration(){
+    public int getFlightDuration(){
         int duration = 0;
         return duration;
     }
 
-    void cancel(){
+    public void cancel(){
         cancelled = true;
+    }
+
+    public static void printDetails(Ticket ticket){
+        System.out.println("PNR: " + ticket.getPnr());
     }
 }

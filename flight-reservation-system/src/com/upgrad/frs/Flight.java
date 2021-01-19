@@ -2,11 +2,13 @@ package com.upgrad.frs;
 
 public class Flight {
 
+    //attributes
     private String flightNumber;
     private String airline;
     private int capacity;
     private int bookedSeats;
 
+    //constructor
     public Flight(String flightNumber, String airline, int capacity, int bookedSeats) {
         this.flightNumber = flightNumber;
         this.airline = airline;
@@ -14,6 +16,7 @@ public class Flight {
         this.bookedSeats = bookedSeats;
     }
 
+    //setter and getters start
     public String getFlightNumber() {
         return flightNumber;
     }
@@ -45,7 +48,9 @@ public class Flight {
     public void setBookedSeats(int bookedSeats) {
         this.bookedSeats = bookedSeats;
     }
+    //setters and getters end
 
+    //methods
     public String getFlightDetails(){
         return "Flight number: " + flightNumber + ", Airline: " + airline + ", Capacity: " + capacity + ", Booked Seats: " + bookedSeats;
     }

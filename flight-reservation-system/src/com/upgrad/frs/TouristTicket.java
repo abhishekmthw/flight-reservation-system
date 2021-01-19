@@ -2,15 +2,18 @@ package com.upgrad.frs;
 
 public class TouristTicket extends Ticket{
 
+    //attributes
     private String hotelAddress;
     private String[] selectedTouristLocation = new String[5];
 
-    public TouristTicket(String hotelAddress, String[] selectedTouristLocation, String pnr, String from, String to,  String departureDateTime, String arrivalDateTime, String seatNo, float price, boolean cancelled, String flightNumber, String airline, int capacity, int bookedSeats, int id, String street, String city, String state, String name, String phone, String email) {
-        super(pnr, from, to, departureDateTime, arrivalDateTime, seatNo, price, cancelled, flightNumber, airline, capacity, bookedSeats,id, street, city, state, name, phone, email);
+    //constructor with inherited attributes
+    public TouristTicket(String hotelAddress, String[] selectedTouristLocation, String pnr, String from, String to,  String departureDateTime, String arrivalDateTime, String seatNo, float price, boolean cancelled, String flightNumber, String airline, int capacity, int bookedSeats, String street, String city, String state, String name, String phone, String email) {
+        super(pnr, from, to, departureDateTime, arrivalDateTime, seatNo, price, cancelled, flightNumber, airline, capacity, bookedSeats, street, city, state, name, phone, email);
         this.hotelAddress = hotelAddress;
         this.selectedTouristLocation = selectedTouristLocation;
     }
 
+    //methods
     String getHotelAddress(){
         return hotelAddress;
     }
@@ -53,6 +56,6 @@ public class TouristTicket extends Ticket{
         if(i == 5){
             System.out.println("Maximum locations entered!");
         }
-
     }
+
 }
